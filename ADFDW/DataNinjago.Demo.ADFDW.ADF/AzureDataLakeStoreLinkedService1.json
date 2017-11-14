@@ -1,0 +1,15 @@
+﻿{
+    "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.LinkedService.json",
+    "name": "AzureDataLakeStoreLinkedService1",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "authorization": "urn:ietf:wg:oauth:2.0:oob?code=AQABAAIAAABHh4kmS_aKT5XrjzxRAtHzbOia7bzox3qrWiOMf5aki87smE9MU5I3eLiq1YdgsvAvHQJtOsWiEv51B9fd4J7kzF467wuS6D0W0HsARTMHmuLsgc3HhN6NumUQBCivPg2J4UhgbB4AkSSJ8Bndm_cGIL62pfm6PMIAXKcY5Gkg2mJudRQU7a-3fM-2ylXjGEGbS4y0PDocKjPvsD-asUD1zwic-_UUY3UZDgaI52ScSZ-Vzf_2WCgVPP3zbFYiX79gWYApb-OTVVdWWlvaURl4ons96--0rvpey5ePB_h_Pqf08FYyyarl6OpOAmeQXN2cBxO4eXEWfFOYkx_IMvmeo8ywfKu4sozvF13sq7ROXnOrsqyxKG9hBfaUcRHy08O0YQLSl7qtPqhtIDTkbunAEiKZAzyav5rX-jQmHOPkhX2Qr4kTzc9xx1C-EbMjmtwjv2AY-0D4sVfh1v54NgdpgbWRq55AXOXKBWGI_frO4LSD9ZfxeEo_c-0noC1rOd8qReAHGbutVPdN-91bezFBvubfaQ99__WTKfbjvW9dpry8nUsGuGmb4jibot0rTO_5LQpRwVsJExkdjFDclPPeQJNTOURAGKEbeBGT3ngAtEaZyCJLcAS4qmIuT2Y4kHpEjuY-B4843LU3UfClJCTa30At3iMljoKqXjaVIw5ZX3gKl44BW_GTd42ACx1DVucxKZQni-0HSc5qYMA5c0WIo-hxKNuF7eLXCsITTIGiOU03pr0rTJ1c-hmqt6H3-nsYPy0kGpID8Sp42ut3-grCGMHI_95tHqaNPQIzwGLBNYnjwE3YM3WeI42kWijF6lx_tqG75J6JPzWqNSS-ZF-Zl-2RBs-_jWFTlXhQXouVxOhM5_tWYX3UCafgB33nJDViTJ4wz61w8wCq9Yh-pLWtSrGpI28JzXz_UYNKbZfMiEx3o5d2rA0GF8Pg9VwYu-E6WG7c_NXC1JjTbkzbXRwslMz7kFZmRVeQUslgXqrchvX1m0WtqGqWZkT83azZvp7dZSIE5nkXsq9RL4cssH7PbhnSZgKhOg5mqWdUYhyPug8ZbOFxbDoZlj7wduWZV0aMUb1svyUvuXJ5wwshyMOYCkWcwUAX-k0dYdR6frgh0iAA&state=03d34352-7042-40bd-80c9-2279b76688df&session_state=7b0ff818-218d-4970-9958-5b5df91f45c6",
+            "sessionId": "eyJJZCI6bnVsbCwiQnJvd3Nlck5hdmlnYXRpb25JbmZvIjp7IkNhbGxiYWNrVXJpIjoidXJuOmlldGY6d2c6b2F1dGg6Mi4wOm9vYiIsIkxvZ29uVXJpIjoiaHR0cHM6Ly9sb2dpbi53aW5kb3dzLm5ldC82YTRlOTA0MC03NWFjLTQxN2UtODhkYS05YjJhZTU0MjFhNTEvb2F1dGgyL2F1dGhvcml6ZT9yZXNwb25zZV90eXBlPWNvZGUmY2xpZW50X2lkPWEzMDZiYWYwLTVhZDgtNGY2Zi1iYWJmLTZhMjg2YjAxNDJiYSZyZWRpcmVjdF91cmk9dXJuJTNBaWV0ZiUzQXdnJTNBb2F1dGglM0EyLjAlM0Fvb2ImcmVzb3VyY2U9aHR0cHMlM0ElMkYlMkZtYW5hZ2VtZW50LmNvcmUud2luZG93cy5uZXQlMkYmc3RhdGU9MDNkMzQzNTItNzA0Mi00MGJkLTgwYzktMjI3OWI3NjY4OGRmJm51eD0xJnByb21wdD1sb2dpbiIsIlNlcmlhbGl6ZWRDb250ZXh0IjpudWxsLCJXaW5kb3dzSGVpZ2h0IjowLCJXaW5kb3dzV2lkdGgiOjAsIlN0YXRlIjpudWxsfSwiRGF0YVNvdXJjZVJlZmVyZW5jZSI6IntcclxuXHRcdFx0XCJwcm90b2NvbFwiOiBcIkNhYm9cIixcclxuXHRcdFx0XCJhZGRyZXNzXCI6XHJcblx0XHRcdHtcclxuXHRcdFx0XHRcInRlbmFudElkXCI6IFwiNmE0ZTkwNDAtNzVhYy00MTdlLTg4ZGEtOWIyYWU1NDIxYTUxXCJcclxuXHRcdFx0fVxyXG5cdCAgICB9IiwiT0F1dGhTZXR0aW5nc0lkIjoiMDEzNEEyQTYtOUZFQy00NTE0LTgxNzUtRUQyMjY4OTZCQ0I5XzU0MmIxNjgwLTUxZmMtNGVjMy1iYzJjLWU0OGVlODc3Zjc5MyIsIlN0YXRlIjoiMDNkMzQzNTItNzA0Mi00MGJkLTgwYzktMjI3OWI3NjY4OGRmIn0=",
+            "dataLakeStoreUri": "https://ninjago0876demo.azuredatalakestore.net/webhdfs/v1",
+            "accountName": "ninjago0876demo",
+            "subscriptionId": "87da707f-df7e-4602-929f-ab1ffc57ac43",
+            "resourceGroupName": "PoC"
+        }
+    }
+}

@@ -1,0 +1,96 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [prod].[DimCustomer]
+       [prod].[DimMachine]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [prod].[DimCustomer].[Branch] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[CustomerCode] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[CustomerName] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[Industry] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[Modified] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[TenantCode] is being dropped, data loss could occur.
+       The column [prod].[DimCustomer].[Code] on table [prod].[DimCustomer] must be added, but the column has no default value
+         and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must
+         either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults
+         as a deployment option.
+       The column [prod].[DimCustomer].[LastModified] on table [prod].[DimCustomer] must be added, but the column has no
+         default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this
+         issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [prod].[DimCustomer].[Name] on table [prod].[DimCustomer] must be added, but the column has no default value
+         and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must
+         either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults
+         as a deployment option.
+       The column [prod].[DimMachine].[ActualServiceDate] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[Lat] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[Long] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[MachineCode] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[MachineName] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[ModelId] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[Modified] is being dropped, data loss could occur.
+       The column [prod].[DimMachine].[Code] on table [prod].[DimMachine] must be added, but the column has no default value
+         and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must
+         either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults
+         as a deployment option.
+       The column [prod].[DimMachine].[Condition] on table [prod].[DimMachine] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [prod].[DimMachine].[CurrentRow] on table [prod].[DimMachine] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [prod].[DimMachine].[LastModified] on table [prod].[DimMachine] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [prod].[DimMachine].[Name] on table [prod].[DimMachine] must be added, but the column has no default value
+         and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must
+         either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults
+         as a deployment option.
+
+** User actions
+     Table rebuild
+       [prod].[DimCustomer] (Table)
+       [prod].[DimMachine] (Table)
+     Create
+       [prod].[FactMachineCycle] (Table)
+       [stg].[Customer] (Table)
+       [stg].[Machine] (Table)
+       [stg].[MachineCycle] (Table)
+     Alter
+       [stg].[uspLoadDimMachine] (Procedure)
+
+** Supporting actions
+
+The column [prod].[DimCustomer].[Branch] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[CustomerCode] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[CustomerName] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[Industry] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[Modified] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[TenantCode] is being dropped, data loss could occur.
+The column [prod].[DimCustomer].[Code] on table [prod].[DimCustomer] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimCustomer].[LastModified] on table [prod].[DimCustomer] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimCustomer].[Name] on table [prod].[DimCustomer] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimMachine].[ActualServiceDate] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[Lat] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[Long] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[MachineCode] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[MachineName] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[ModelId] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[Modified] is being dropped, data loss could occur.
+The column [prod].[DimMachine].[Code] on table [prod].[DimMachine] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimMachine].[Condition] on table [prod].[DimMachine] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimMachine].[CurrentRow] on table [prod].[DimMachine] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimMachine].[LastModified] on table [prod].[DimMachine] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [prod].[DimMachine].[Name] on table [prod].[DimMachine] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+If this deployment is executed, changes to [prod].[DimCustomer] might introduce run-time errors in [stg].[uspFullLoadFactComponentCycleTemp].
+If this deployment is executed, changes to [prod].[DimCustomer] might introduce run-time errors in [stg].[uspLoadDimCustomer].
+If this deployment is executed, changes to [prod].[DimCustomer] might introduce run-time errors in [stg].[uspLoadFactComponentCycle].
+If this deployment is executed, changes to [prod].[DimMachine] might introduce run-time errors in [stg].[uspFullLoadFactComponentCycleTemp].
+If this deployment is executed, changes to [prod].[DimMachine] might introduce run-time errors in [stg].[uspLoadFactComponentCycle].
+

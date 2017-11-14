@@ -1,0 +1,10 @@
+﻿{
+    "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.LinkedService.json",
+    "name": "ReferenceDBLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+      "typeProperties": {
+        "connectionString": "Server=tcp:dataninjagodemo.database.windows.net,1433;Initial Catalog=DataNinjago.Demo.ADFDW.ReferenceDB;Persist Security Info=False;User ID=linxiao;Password=Ma19961007!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+      }
+    }
+}

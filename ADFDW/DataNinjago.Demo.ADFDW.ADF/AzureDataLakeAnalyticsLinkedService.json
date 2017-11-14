@@ -1,0 +1,16 @@
+﻿{
+    "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.LinkedService.json",
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+          "accountName": "ninjago0786demp",
+          "subscriptionId": "87da707f-df7e-4602-929f-ab1ffc57ac43",
+          "resourceGroupName": "PoC",
+          "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+          "servicePrincipalId": "3b742ad1-0e63-44c4-94ac-d99d156d4492",
+           "servicePrincipalKey": "QKqAUgXzDsZL6NHT0LjbUiUKb+d9uDAluWIO6jQuXSw=",
+          "tenant": "6a4e9040-75ac-417e-88da-9b2ae5421a51"
+      }
+    }
+}

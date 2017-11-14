@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [prod].[DimCustomer] (Table)
+       [prod].[DimDate] (Table)
+       [prod].[DimMachine] (Table)
+       [prod].[FactMachineCycle] (Table)
+       [stg].[Customer] (Table)
+       [stg].[Machine] (Table)
+       [stg].[MachineCycle] (Table)
+
+** Supporting actions

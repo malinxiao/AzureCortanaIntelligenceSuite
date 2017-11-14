@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.Table.json",
+  "name": "OutputStgMachineCycle",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "DWLinkedService",
+    "structure": [
+      { "name": "CycleId" },
+      { "name": "CustomerName" },
+      { "name": "MachineName" },
+      { "name": "StartDateTime" },
+      { "name": "EndDateTime" },
+      { "name": "LastModified" }
+    ],
+    "typeProperties": {
+      "tableName": "[stg].[MachineCycle]"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}

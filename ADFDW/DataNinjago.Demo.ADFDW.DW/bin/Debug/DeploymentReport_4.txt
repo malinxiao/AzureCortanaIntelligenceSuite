@@ -1,0 +1,19 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [prod].[DimCustomer]
+       [prod].[DimMachine]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [prod].[DimCustomer] (Table)
+       [prod].[DimMachine] (Table)
+
+** Supporting actions
+     Refresh
+       [stg].[uspLoadDimCustomer] (Procedure)

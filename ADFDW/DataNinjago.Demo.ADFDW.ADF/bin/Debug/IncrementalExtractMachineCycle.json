@@ -1,0 +1,46 @@
+{
+  "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.Pipeline.json",
+  "name": "IncrementalExtractMachineCycle",
+  "properties": {
+    "description": "Extract machine cycles within current time slice",
+    "activities": [
+      {
+        "name": "ExtractMachineCycle",
+        "linkedServiceName": "AzureDataLakeAnalyticsLinkedService",
+        "type": "DataLakeAnalyticsU-SQL",
+        "typeProperties": {
+          "script": "ADFDW.dbo.uspGetMachineCycles(System.DateTime.Parse(@sliceStart), System.DateTime.Parse(@sliceEnd));",
+          "parameters": {
+            "sliceStart": "$$Text.Format('{0:yyyy-MM-ddTHH:mm:ssZ}', SliceStart)",
+            "sliceEnd": "$$Text.Format('{0:yyyy-MM-ddTHH:mm:ssZ}', SliceEnd)"
+          }
+        },
+        "inputs": [
+          {
+            "name": "OutputDimCustomer"
+          },
+          {
+            "name": "OutputDimMachine"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "InputMachineCycle"
+          }
+        ],
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 3,
+          "timeout": "01:00:00"
+        },
+        "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    ],
+    "start": "2017-11-10T20:00:00",
+    "end": "2017-11-13T01:00:00"
+  }
+}

@@ -1,0 +1,9 @@
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\bin\Debug\DataNinjago.Demo.ADFDW.DW.dacpac
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\bin\Debug\DataNinjago.Demo.ADFDW.DW.dll
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\bin\Debug\DataNinjago.Demo.ADFDW.DW.pdb
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\DataNinjago.Demo.ADFDW.DW.dll
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\DataNinjago.Demo.ADFDW.DW.pdb
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\Model.xml
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\refactor.xml
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\postdeploy.sql
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.DW\obj\Debug\predeploy.sql

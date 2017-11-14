@@ -1,0 +1,32 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       unnamed constraint on [stg].[Customer]
+       unnamed constraint on [stg].[Machine]
+       unnamed constraint on [stg].[MachineCycle]
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [stg].[Customer].[Id] is being dropped, data loss could occur.
+       The column [stg].[Machine].[Id] is being dropped, data loss could occur.
+       The column [stg].[MachineCycle].[Id] is being dropped, data loss could occur.
+
+** User actions
+     Drop
+       unnamed constraint on [stg].[Customer] (Primary Key)
+       unnamed constraint on [stg].[Machine] (Primary Key)
+       unnamed constraint on [stg].[MachineCycle] (Primary Key)
+     Alter
+       [stg].[Customer] (Table)
+       [stg].[Machine] (Table)
+       [stg].[MachineCycle] (Table)
+
+** Supporting actions
+     Refresh
+       [stg].[uspLoadDimMachine] (Procedure)
+
+The column [stg].[Customer].[Id] is being dropped, data loss could occur.
+The column [stg].[Machine].[Id] is being dropped, data loss could occur.
+The column [stg].[MachineCycle].[Id] is being dropped, data loss could occur.
+

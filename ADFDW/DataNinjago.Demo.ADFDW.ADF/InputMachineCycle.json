@@ -1,0 +1,28 @@
+﻿{
+    "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.Table.json",
+    "name": "InputMachineCycle",
+  "properties": {
+    "type": "AzureDataLakeStore",
+    "linkedServiceName": "AzureDataLakeStoreLinkedService",
+    "structure": [
+      {
+        "name": "CycleId",
+        "type": "Int32"
+      },
+      { "name": "CustomerCode"},
+      { "name": "MachineCode"},
+      { "name": "StartDateTime", "type": "Datetime" },
+      { "name": "EndDateTime", "type": "Datetime" },
+      { "name": "EventTime", "type": "Datetime" }
+    ],
+    "typeProperties": {
+      "folderPath": "IoT/Staging",
+      "fileName": "stgMachineCycles.csv",
+      "partitionedBy": []
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}

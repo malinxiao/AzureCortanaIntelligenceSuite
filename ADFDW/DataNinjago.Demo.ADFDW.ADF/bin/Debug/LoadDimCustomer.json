@@ -1,0 +1,79 @@
+{
+  "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.Pipeline.json",
+  "name": "LoadDimCustomer",
+  "properties": {
+    "description": "Load Customer table to staging table, and then call stored procedure to load to dimention",
+    "activities": [
+      {
+        "name": "LoadStgCustomer",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "InputCustomer"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "OutputStgCustomer"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "sqlReaderQuery": "$$Text.Format('SELECT [Code],[Name],[LastModified] FROM [dbo].[Customer] WHERE [LastModified] >= \\'{0:yyyy-MM-dd HH:mm}\\' AND [LastModified] < \\'{1:yyyy-MM-dd HH:mm}\\'', SliceStart, SliceEnd)"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "SqlWriterTableType": "[stg].[Customer]",
+            "sqlWriterCleanupScript": "TRUNCATE TABLE [stg].[Customer]"
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "ColumnMappings": "Code: Code, Name: Name, LastModified: LastModified"
+          }
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 3,
+          "timeout": "01:00:00"
+        },
+        "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      },
+      {
+        "name": "LoadDimCustomer",
+        "type": "SqlServerStoredProcedure",
+        "inputs": [
+          {
+            "name": "OutputStgCustomer"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "OutputDimCustomer"
+          }
+        ],
+        "typeProperties": {
+          "storedProcedureName": "stg.uspLoadDimCustomer",
+          "storedProcedureParameters": {}
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 3,
+          "timeout": "01:00:00"
+        },
+        "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+
+    ],
+    "start": "2017-11-10T21:00:00",
+    "end": "2017-11-13T01:00:00"
+  }
+}

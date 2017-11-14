@@ -1,0 +1,20 @@
+﻿{
+  "$schema": "http://datafactories.schema.management.azure.com/schemas/2015-09-01/Microsoft.DataFactory.Table.json",
+  "name": "OutputStgCustomer",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "DWLinkedService",
+    "structure": [
+      { "name": "Code" },
+      { "name": "Name" },
+      { "name": "LastModified" }
+    ],
+    "typeProperties": {
+      "tableName": "[stg].[Customer]"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}

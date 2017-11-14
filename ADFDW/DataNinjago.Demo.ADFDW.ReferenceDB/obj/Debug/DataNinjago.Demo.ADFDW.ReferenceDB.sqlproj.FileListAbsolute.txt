@@ -1,0 +1,9 @@
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\bin\Debug\DataNinjago.Demo.ADFDW.ReferenceDB.dacpac
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\bin\Debug\DataNinjago.Demo.ADFDW.ReferenceDB.dll
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\bin\Debug\DataNinjago.Demo.ADFDW.ReferenceDB.pdb
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\DataNinjago.Demo.ADFDW.ReferenceDB.dll
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\DataNinjago.Demo.ADFDW.ReferenceDB.pdb
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\Model.xml
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\refactor.xml
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\postdeploy.sql
+C:\Users\Linxiao\OneDrive\Work\AzureData\ADFDW\DataNinjago.Demo.ADFDW.ReferenceDB\obj\Debug\predeploy.sql

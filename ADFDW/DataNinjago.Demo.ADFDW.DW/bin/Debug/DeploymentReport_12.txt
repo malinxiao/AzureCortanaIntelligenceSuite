@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column Code in table [stg].[Machine] is currently  INT NOT NULL but is being changed to  VARCHAR (1) NOT
+         NULL. Data loss could occur.
+
+** User actions
+     Alter
+       [prod].[DimCustomer] (Table)
+       [prod].[DimMachine] (Table)
+       [stg].[Machine] (Table)
+
+** Supporting actions
+     Refresh
+       [stg].[uspLoadDimMachine] (Procedure)
+
+The type for column Code in table [stg].[Machine] is currently  INT NOT NULL but is being changed to  VARCHAR (1) NOT NULL. Data loss could occur.
+

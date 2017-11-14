@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>8d3027a4-d28a-4ad4-8e46-c658e0887230</ProjectGuid>
+    <OutputType>File</OutputType>
+    <AssemblyName>DataFactory</AssemblyName>
+    <ApiVersion>2015-09-01</ApiVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <Name>DataNinjago.Demo.ADFDW.ADF</Name>
+    <RootNamespace>DataNinjago.Demo.ADFDW.ADF</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ADFConfigFileToPublish>
+    </ADFConfigFileToPublish>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Dependencies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Script Include="AzureDataLakeAnalyticsLinkedService.json" />
+    <Script Include="AzureDataLakeStoreLinkedService.json" />
+    <Script Include="IncrementalExtractMachineCycle.json" />
+    <Script Include="InputCustomer.json" />
+    <Script Include="DWLinkedService.json" />
+    <Script Include="InputMachine.json" />
+    <Script Include="InputMachineCycle.json" />
+    <Script Include="LoadDimCustomer.json" />
+    <Script Include="LoadDimMachine.json" />
+    <Script Include="LoadFactMachineCycle.json" />
+    <Script Include="OutputDimCustomer.json" />
+    <Script Include="OutputDimMachine.json" />
+    <Script Include="OutputFactMachineCycle.json" />
+    <Script Include="OutputStgCustomer.json" />
+    <Script Include="OutputStgMachine.json" />
+    <Script Include="OutputStgMachineCycle.json" />
+    <Script Include="ReferenceDBLinkedService.json" />
+  </ItemGroup>
+  <Import Project="$(AppData)\Microsoft\DataFactory Tools for Visual Studio\MsBuild\1.0\DataFactory.targets" />
+</Project>

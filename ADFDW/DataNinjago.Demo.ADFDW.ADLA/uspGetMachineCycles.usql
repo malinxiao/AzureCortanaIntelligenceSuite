@@ -1,0 +1,37 @@
+﻿CREATE DATABASE IF NOT EXISTS ADFDW;
+
+DROP PROCEDURE IF EXISTS ADFDW.dbo.uspGetMachineCycles;
+CREATE PROCEDURE IF NOT EXISTS ADFDW.dbo.uspGetMachineCycles(@sliceStart DateTime, @sliceEnd DateTime)
+AS
+BEGIN
+
+    DECLARE @sliceYear string = @sliceStart.Year.ToString();
+    DECLARE @sliceMonth string = @sliceStart.Month.ToString().PadLeft(2, '0');
+    DECLARE @sliceDay string = @sliceStart.Day.ToString().PadLeft(2, '0');
+
+    DECLARE @InputPath = @"/IoT/Curated%20Zone/Demo/ADFDW/"
+                         + @sliceYear + "/" + @sliceMonth + "/" + @sliceDay + "/{*}.csv";
+
+    DECLARE @OutputFile string = "/IoT/Staging/stgMachineCycles.csv";
+
+    @machineCycles =
+        EXTRACT CycleId int,
+                CustomerCode string,
+                MachineCode string,
+                StartDateTime DateTime,
+                EndDateTime DateTime,
+                EventTime DateTime
+        FROM @InputPath
+        USING Extractors.Csv(skipFirstNRows : 1);
+
+    @result =
+        SELECT *
+        FROM @machineCycles
+        WHERE EndDateTime >= @sliceStart AND EndDateTime < @sliceEnd;
+
+
+    OUTPUT @result
+    TO @OutputFile
+    USING Outputters.Csv();
+
+END;

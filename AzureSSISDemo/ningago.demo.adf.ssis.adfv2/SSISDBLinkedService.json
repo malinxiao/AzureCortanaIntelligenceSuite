@@ -1,0 +1,13 @@
+﻿{
+  "name": "SSISDBLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": {
+        "type": "SecureString",
+        "value": "Server=tcp:ninjagodemo222.database.windows.net,1433;Database=SSISDB;User ID=ninjago;Password=Monday123!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+
+      }
+    }
+  }
+}

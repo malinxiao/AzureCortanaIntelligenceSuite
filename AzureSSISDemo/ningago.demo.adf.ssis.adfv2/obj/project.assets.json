@@ -1,0 +1,124 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.0": {
+      "Adfc.Msbuild/0.2.1-preview": {
+        "type": "package",
+        "build": {
+          "build/Adfc.Msbuild.props": {},
+          "build/Adfc.Msbuild.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win": {
+      "Adfc.Msbuild/0.2.1-preview": {
+        "type": "package",
+        "build": {
+          "build/Adfc.Msbuild.props": {},
+          "build/Adfc.Msbuild.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win-x64": {
+      "Adfc.Msbuild/0.2.1-preview": {
+        "type": "package",
+        "build": {
+          "build/Adfc.Msbuild.props": {},
+          "build/Adfc.Msbuild.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win-x86": {
+      "Adfc.Msbuild/0.2.1-preview": {
+        "type": "package",
+        "build": {
+          "build/Adfc.Msbuild.props": {},
+          "build/Adfc.Msbuild.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Adfc.Msbuild/0.2.1-preview": {
+      "sha512": "SUuDIg8+nqg5WqntN5h4HRPk9mXtIqSTMT3h/3MGiMfQvvj79sSzu+zTAu961Q1uk80k83Gix1RkEdK35HLVCw==",
+      "type": "package",
+      "path": "adfc.msbuild/0.2.1-preview",
+      "files": [
+        "adfc.msbuild.0.2.1-preview.nupkg.sha512",
+        "adfc.msbuild.nuspec",
+        "build/Adfc.Msbuild.props",
+        "build/Adfc.Msbuild.targets",
+        "build/net46/Adfc.Msbuild.dll",
+        "build/net46/Microsoft.Build.Framework.dll",
+        "build/net46/Microsoft.Build.Utilities.Core.dll",
+        "build/net46/NJsonSchema.dll",
+        "build/net46/Newtonsoft.Json.dll",
+        "build/net46/System.Net.Http.dll",
+        "build/net46/System.Runtime.InteropServices.RuntimeInformation.dll",
+        "build/net46/System.Security.Cryptography.Algorithms.dll",
+        "build/net46/System.Security.Cryptography.Encoding.dll",
+        "build/net46/System.Security.Cryptography.Primitives.dll",
+        "build/net46/System.Security.Cryptography.X509Certificates.dll",
+        "build/net46/System.Threading.Thread.dll",
+        "build/net46/System.ValueTuple.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.0": [
+      "Adfc.Msbuild >= 0.2.1-preview"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Linxiao\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Linxiao\\OneDrive\\Work\\AzureData\\AzureSSISDemo\\AzureSSISDemo\\ningago.demo.adf.ssis.adfv2\\ningago.demo.adf.ssis.adfv2.adfcproj",
+      "projectName": "ningago.demo.adf.ssis.adfv2",
+      "projectPath": "C:\\Users\\Linxiao\\OneDrive\\Work\\AzureData\\AzureSSISDemo\\AzureSSISDemo\\ningago.demo.adf.ssis.adfv2\\ningago.demo.adf.ssis.adfv2.adfcproj",
+      "packagesPath": "C:\\Users\\Linxiao\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Linxiao\\OneDrive\\Work\\AzureData\\AzureSSISDemo\\AzureSSISDemo\\ningago.demo.adf.ssis.adfv2\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\Linxiao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        ".NETFramework,Version=v4.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net40": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net40": {
+        "dependencies": {
+          "Adfc.Msbuild": {
+            "target": "Package",
+            "version": "0.2.1-preview"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

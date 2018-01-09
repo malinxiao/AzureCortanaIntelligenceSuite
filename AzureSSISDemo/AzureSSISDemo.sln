@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ningago.demo.adf.ssis", "ningago.demo.adf.ssis\ningago.demo.adf.ssis.dtproj", "{A48E36DC-A151-404F-BD0D-D2E83ACCA882}"
+EndProject
+Project("{1CB5CF53-4394-4CD2-9DEB-9CB709F77ED2}") = "ningago.demo.adf.ssis.adfv2", "ningago.demo.adf.ssis.adfv2\ningago.demo.adf.ssis.adfv2.adfcproj", "{4C9581FD-E539-4C13-A3F6-F260540B3CE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Debug|Any CPU.ActiveCfg = Development
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Debug|Any CPU.Build.0 = Development
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Development|Any CPU.ActiveCfg = Development
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Development|Any CPU.Build.0 = Development
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Release|Any CPU.ActiveCfg = Development
+		{A48E36DC-A151-404F-BD0D-D2E83ACCA882}.Release|Any CPU.Build.0 = Development
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9581FD-E539-4C13-A3F6-F260540B3CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30EE7EDC-A1C7-4C7A-A443-601C6EA94BAE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/2/2017 12:53:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LINXIAO-PC"
+  DTS:CreatorName="LINXIAO-PC\Linxiao"
+  DTS:DTSID="{9847859F-29B5-43EE-B735-B14F6B7343F5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_SQLDB_to_ADLS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{ACC72F5A-31AB-4E97-A324-5310FC947F04}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ADLS Connection Manager]"
+      DTS:CreationName="AzureDataLake"
+      DTS:DTSID="{8464F10C-249E-4BEF-BF8D-53AC760E01BB}"
+      DTS:ObjectName="ADLS Connection Manager">
+      <DTS:ObjectData>
+        <HadoopConnectionManager
+          ConnectionString="WebHdfsHost=ninjagodem0123.azuredatalakestore.net;WebHdfsPort=443;WebHdfsUserName=2836cb8a-1488-45de-bd02-d0119bdbb116;WebHdfsAuthType=AzureADServiceIdentity;WebHdfsDomain=6a4e9040-75ac-417e-88da-9b2ae5421a51;WebHdfsIsHttps=True;">
+          <WebHdfsPassWord
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsw58/HhN50OgsgcPEuV+BQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB2qkZRQCa4rKPbk3YqYmFCLJZlbEZXpZ8uNCj6wiQuCQAAAAAOgAAAAAIAACAAAABkyROsRrIm6fiyEWobA2o1NPDLoilsxo6r2D89gL+RWmAAAAAV5fp4Mo8wSYk79yY0FOkaIq9yuSEjBfCgBLQHRMrx6hcOo9pOuFk86Nl7oSK01Ch4u0WQgybOnTTlBSwb977DbjFREcMAHirPMcEKbM2DU2BOU2Wzsi3MF0IPHiGnonhAAAAA3Wu761t1G4cP2hfTqHyqfIyeAKDYLpAmomQ0wKASyMydzFE996T+J/gvhqXa6tVuRe96uNZitMdRvLUmGtnYJg</WebHdfsPassWord>
+        </HadoopConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ninjagodemo212.database.windows.net.ninjagodemo1232.linxiao]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BBC961D7-16CE-4C79-99E4-CA8FA40D6124}"
+      DTS:ObjectName="ninjagodemo212.database.windows.net.ninjagodemo1232.linxiao">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ninjagodemo212.database.windows.net;User ID=linxiao;Initial Catalog=ninjagodemo1232;Persist Security Info=True;Application Name=SSIS-Package-{BBC961D7-16CE-4C79-99E4-CA8FA40D6124}ninjagodemo212.database.windows.net.ninjagodemo1232.linxiao;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsw58/HhN50OgsgcPEuV+BQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADvisT8kfBkdWgBI1j44TsMxCCQxvZ1Bzo+sXYopWXDUgAAAAAOgAAAAAIAACAAAADuiSbFMkxnT1ELu0q9wv7c+Xb4lwylTaqXfUwD7ewcrCAAAACUic5R0Kz3fb9/0ZC/2xBRUR8pbhrVYbznPsWMUIB5ukAAAAC5877ZUU7AChbC4A24ZcMS5RmrDuJyXwUSSGbV8q2Vf/3VPo3ZoNExdnk1rZIFBIM9SfjW3gqpWx2zuQZhJf/A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{8E827898-31C0-453C-B93B-710455B43017}"
+      DTS:ObjectName="DateSliceToLoad">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">12/30/2007</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CBA0E86A-8555-489A-9608-386D7E418111}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)(DT_DBDATE)@[$Package::DateSliceToLoad]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EndDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12/30/2007</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4A19B14B-8886-4C09-9C96-03B9B86614F6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DATEADD( &quot;day&quot;, -1, ( (DT_DATE)(DT_DBDATE) @[$Package::DateSliceToLoad] ))"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12/29/2007</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Orders to ADLS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BDCCB6D4-C5F8-45FE-9030-921BC6FD5A6C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Orders to ADLS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="[ADO NET Source].[SqlCommand]">"EXEC [dbo].[uspGetSaleOrders] @StartDate ='"+(DT_WSTR, 50)@[User::StartDate]+"', @EndDate = '"+(DT_WSTR, 50)@[User::EndDate]+"'"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Azure Data Lake Store Destination].[FilePath]">"/Samples/Demo/"+(DT_WSTR, 4)YEAR(@[User::EndDate]) +"/"+RIGHT("0" + (DT_WSTR, 2) MONTH(@[User::EndDate]), 2) +"/"+RIGHT("0" + (DT_WSTR, 2) DAY(@[User::EndDate]), 2)+"/SaleOrders_" +(DT_WSTR, 4)YEAR(@[User::EndDate]) + RIGHT("0" + (DT_WSTR, 2) MONTH(@[User::EndDate]), 2) + RIGHT("0" + (DT_WSTR, 2) DAY(@[User::EndDate]), 2)+".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Orders to ADLS\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [dbo].[uspGetSaleOrders] @StartDate ='12/29/2007', @EndDate = '12/30/2007'</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"SalesLT"."SalesOrderDetail"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ninjagodemo212.database.windows.net.ninjagodemo1232.linxiao]"
+                  connectionManagerRefId="Package.ConnectionManagers[ninjagodemo212.database.windows.net.ninjagodemo1232.linxiao]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]"
+                      name="DueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Status]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderNumber]"
+                      length="25"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PurchaseOrderNumber]"
+                      length="25"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[AccountNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AccountNumber]"
+                      length="15"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[BillToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[BillToAddressID]"
+                      name="BillToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipMethod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipMethod]"
+                      length="50"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipMethod]"
+                      name="ShipMethod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CreditCardApprovalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CreditCardApprovalCode]"
+                      length="15"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SubTotal]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SubTotal]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SubTotal]"
+                      name="SubTotal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TaxAmt]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Freight]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TotalDue]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Comment]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Comment]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Comment]"
+                      name="Comment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[rowguid]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipMethod]"
+                      dataType="wstr"
+                      length="50"
+                      name="ShipMethod" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CreditCardApprovalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Comment]"
+                      dataType="nText"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderID]"
+                      name="SalesOrderID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RevisionNumber]"
+                      name="RevisionNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDate]"
+                      name="DueDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Status]"
+                      dataType="ui1"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AccountNumber]"
+                      name="AccountNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[BillToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[BillToAddressID]"
+                      name="BillToAddressID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipMethod]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipMethod]"
+                      name="ShipMethod" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CreditCardApprovalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SubTotal]"
+                      dataType="cy"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SubTotal]"
+                      name="SubTotal" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TaxAmt]"
+                      name="TaxAmt" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Freight]"
+                      dataType="cy"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TotalDue]"
+                      dataType="cy"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TotalDue]"
+                      name="TotalDue" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Comment]"
+                      dataType="nText"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Comment]"
+                      name="Comment" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Loads data into a file in ADLS. The supported file formats are: Text, Avro, Orc."
+              name="Azure Data Lake Store Destination"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of HDFS file"
+                  expressionType="Notify"
+                  name="FilePath">/Samples/Demo/2007/12/30/SaleOrders_20071230.csv</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  expressionType="Notify"
+                  name="FirstRowAsColumnNames">true</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  expressionType="Notify"
+                  name="ColumnDelimiter">,</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enable batch mode"
+                  expressionType="Notify"
+                  name="IsBatchMode">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Batch size"
+                  expressionType="Notify"
+                  name="BatchSize">10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="File Format"
+                  expressionType="Notify"
+                  name="FileFormat">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AdlsDest</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Connections[Azure Data Lake Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[ADLS Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[ADLS Connection Manager]"
+                  name="Azure Data Lake Connection Manager" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input]"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[RevisionNumber]"
+                      cachedDataType="ui1"
+                      cachedName="RevisionNumber"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[DueDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[DueDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Status]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[OnlineOrderFlag]"
+                      cachedDataType="bool"
+                      cachedName="OnlineOrderFlag"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[OnlineOrderFlag]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[PurchaseOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="PurchaseOrderNumber"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[PurchaseOrderNumber]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[PurchaseOrderNumber]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[AccountNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="AccountNumber"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[AccountNumber]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[ShipToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="ShipToAddressID"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipToAddressID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[BillToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="BillToAddressID"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[BillToAddressID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[ShipMethod]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ShipMethod"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipMethod]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipMethod]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[CreditCardApprovalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CreditCardApprovalCode"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[CreditCardApprovalCode]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[CreditCardApprovalCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[SubTotal]"
+                      cachedDataType="cy"
+                      cachedName="SubTotal"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SubTotal]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[TaxAmt]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[Freight]"
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Freight]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[TotalDue]"
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[TotalDue]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalDue]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[Comment]"
+                      cachedDataType="nText"
+                      cachedName="Comment"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Comment]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[Comment]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ShipMethod]"
+                      dataType="wstr"
+                      length="50"
+                      name="ShipMethod" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[CreditCardApprovalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[Comment]"
+                      dataType="nText"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Orders to ADLS.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination.Inputs[Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load Orders to ADLS\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\DFT - Load Orders to ADLS"
+          TopLeft="46.8571436551149,29.976471008644" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load Orders to ADLS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="240,41.6"
+          Id="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination"
+          TopLeft="70.8571440638327,171.905884763856" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\DFT - Load Orders to ADLS\ADO NET Source"
+          TopLeft="107.428573258069,74.6352951643789" />
+        <EdgeLayout
+          Id="Package\DFT - Load Orders to ADLS.Paths[ADO NET Source Output]"
+          TopLeft="188.542858660951,116.235295164379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.6705895994775"
+              Start="0,0"
+              End="0,48.1705895994775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1705895994775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Orders to ADLS\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Orders to ADLS\Azure Data Lake Store Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

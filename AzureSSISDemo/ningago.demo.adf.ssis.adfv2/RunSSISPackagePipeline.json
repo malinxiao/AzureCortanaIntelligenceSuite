@@ -1,0 +1,29 @@
+﻿{
+  "name": "RunSSISPackagePipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "Run SSIS Package Activity",
+        "description": "Run SSIS package",
+        "type": "SqlServerStoredProcedure",
+        "linkedServiceName": {
+          "referenceName": "SSISDBLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+          "storedProcedureName": "sp_executesql",
+          "storedProcedureParameters": {
+            "stmt": {
+              "value": "Declare @execution_id bigint EXEC [SSISDB].[catalog].[create_execution] @package_name=N'Load_SQLDB_to_ADLS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'AzureSSISDemo', @project_name=N'ningago.demo.adf.ssis', @use32bitruntime=False, @reference_id=Null, @useanyworker=True, @runinscaleout=True Select @execution_id DECLARE @var0 datetime = N'@{pipeline().parameters.scheduledRunTime}' EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=30, @parameter_name=N'DateSliceToLoad', @parameter_value=@var0 DECLARE @var1 smallint = 1 EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var1 EXEC [SSISDB].[catalog].[start_execution] @execution_id,  @retry_count=0"
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "scheduledRunTime": {
+        "type": "String"
+      }
+    }
+  }
+}
